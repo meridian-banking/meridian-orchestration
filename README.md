@@ -65,3 +65,6 @@ DAG integrity tests don't *run* the DAGs — they assert structural properties. 
 Enforced: no import errors, no cycles, every DAG has a real owner and tags and docs, concurrency is bounded, failure callbacks exist, the gate doesn't retry, infrastructure tasks do, the warehouse load is downstream of the gate with `all_success`, backfill is serialised with `depends_on_past` and a pool, and long-running tasks have timeouts.
 
 Part of the 8-repository Meridian platform.
+
+
+_Verified locally: DAGs deployed to a real Airflow 2.9.3 container, confirmed zero import errors, and inspected the graph view showing the quality gate as the sole path into the warehouse task group, with the postgres://meridian/curated dataset link rendered between eod_pipeline and analytics_refresh._
